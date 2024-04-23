@@ -23,3 +23,14 @@ jobs:
           npm --version
           npm ng --version
           node --version
+
+      - name: Checking if Development branch exists
+        run: |
+          if git show-ref --quiet refs/heads/Development; then
+            echo "Development branch already exists"
+          else
+            git checkout -b Development
+            git add .
+            git commit -m "First commit"
+            git push -u origin Development
+          fi

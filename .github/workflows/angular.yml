@@ -26,6 +26,8 @@ jobs:
 
       - name: Checking if Development branch exists
         run: |
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.NAME }}
           if git show-ref --quiet refs/heads/Development; then
             echo "Development branch already exists"
           else

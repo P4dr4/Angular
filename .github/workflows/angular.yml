@@ -1,23 +1,25 @@
 name: Angular init
 
 on:
-
   workflow_dispatch:
 
 jobs:
-
   Initialization:
-  
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Installing packages and depencies for Angular Application 
+      - name: Seting up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+
+      - name: Installing Angular CLI
+        run: npm install @angular/cli
+
+      - name: Chcking versions
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          apt-get update
-          apt-get install -y nodejs npm
-          npm install -g @angular/cli
-          ng --version && npm --version
+          npm --version
+          ng --version
+          node --version

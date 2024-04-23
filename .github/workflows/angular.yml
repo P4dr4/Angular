@@ -32,7 +32,8 @@ jobs:
             echo "Development branch already exists"
           else
             git checkout -b Development
+            echo "node_modules" > .gitignore
             git add .
             git commit -m "First commit"
-            git push -u origin Development || exit 1
+            git push -u origin Development
           fi

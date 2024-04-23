@@ -35,5 +35,5 @@ jobs:
             echo "node_modules" > .gitignore
             git add .
             git commit -m "First commit"
-            git push -u https://github.com/${{ secrets.NAME }}:${{ secrets.ACCESS_TOKEN }}@github.com/${{ secrets.NAME }}/Angular.git Development
+            git push -u https://github.com/${{ secrets.NAME }}/Angular.git Development
           fi

@@ -34,5 +34,5 @@ jobs:
             git checkout -b Development
             git add .
             git commit -m "First commit"
-            git push -u origin Development
+            git push -u origin Development || exit 1
           fi

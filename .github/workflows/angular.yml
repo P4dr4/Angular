@@ -36,9 +36,9 @@ jobs:
           else
             git checkout -b Development
             echo "node_modules" > .gitignore
-            rm -rf .github/workflows/angular.yml
             cd .github/workflows
-            echo "name: Angular CI" > angular_ci.yml
+            rm angular.yml
+            echo "name: Angular CI" > angularci.yml
             cd ../..
             git add .
             git commit -m "First commit"

@@ -37,7 +37,6 @@ jobs:
             git checkout -b Development
             echo "node_modules" > .gitignore
             rm -rf .github/workflows/angular.yml
-            mkdir .github/workflows
             cd .github/workflows
             echo "name: Angular CI" > angular_ci.yml
             cd ../..

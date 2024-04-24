@@ -33,6 +33,7 @@ jobs:
           else
             git checkout -b Development
             echo "node_modules" > .gitignore
+            ng new angular-app
             git add .
             git commit -m "First commit"
             git push -u https://github.com/${{ secrets.NAME }}/Angular.git Development

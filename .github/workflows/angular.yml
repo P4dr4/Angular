@@ -25,7 +25,7 @@ jobs:
           node --version
 
       - name: Inintializating template project
-        run: ng new angular-app
+        run: /usr/local/bin/ng new angular-app
 
       - name: Checking if Development branch exists
         run: |

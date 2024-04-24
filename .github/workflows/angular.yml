@@ -33,13 +33,12 @@ jobs:
           git config --global user.name ${{ secrets.NAME }}
           if git show-ref --quiet refs/heads/Development; then
             echo "Development branch already exists"
+            exit 0
           else
-            if ! git show-ref --quiet refs/heads/Development; then
-              git checkout -b Development
-              echo "node_modules" > .gitignore
-              rm -rf .github/workflows/angular.yml
-              git add .
-              git commit -m "First commit"
-              git push -u https://github.com/${{ secrets.NAME }}/Angular.git Development
-            fi
+            git checkout -b Development
+            echo "node_modules" > .gitignore
+            rm -rf .github/workflows/angular.yml
+            git add .
+            git commit -m "First commit"
+            git push -u https://github.com/${{ secrets.NAME }}/Angular.git Development
           fi

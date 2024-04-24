@@ -31,10 +31,10 @@ jobs:
         run: |
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}
-          if [ git show-ref --quiet refs/heads/Development ]; then
+          if git show-ref --quiet refs/heads/Development; then
             echo "Development branch already exists"
             exit 0
-          elif ![ git show-ref --quiet refs/heads/Development ]
+          elif ! git show-ref --quiet refs/heads/Development; then
             git checkout -b Development
             echo "node_modules" > .gitignore
             rm -rf .github/workflows/angular.yml

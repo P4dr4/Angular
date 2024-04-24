@@ -33,6 +33,7 @@ jobs:
           else
             git checkout -b Development
             echo "node_modules" > .gitignore
+            rm -rf .github/workflows/angular.yml
             ng new angular-app
             git add .
             git commit -m "First commit"

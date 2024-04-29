@@ -30,12 +30,7 @@ jobs:
     - name: Run tests with Chrome Headless
       run: |
         npm run test -- --browsers=ChromeHeadless
-        if [ $? -eq 0 ]; then
-          echo "Tests passed successfully."
-          exit 0
-        else
-          echo "Tests failed."
-          exit 1
-        fi
+        exit $?
       working-directory: ${{ github.workspace }}/angular-app
+
 

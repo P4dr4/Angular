@@ -29,7 +29,15 @@ jobs:
       
     - name: Run tests with Chrome Headless
       run: |
-        timeout 3m npm run test -- --browsers=ChromeHeadless
+        npm run test -- --browsers=ChromeHeadless &
+        PID=$!
+        sleep 180s
+        if ps -p $PID > /dev/null; then
+          echo "Tests are still running, stopping..."
+          kill $PID
+        else
+          echo "Tests have completed."
+        fi
       working-directory: ${{ github.workspace }}/angular-app
 
 

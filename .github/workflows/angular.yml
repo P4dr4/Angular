@@ -1,4 +1,4 @@
-name: Angular initialization
+name: Angular init
 
 on:
   workflow_dispatch:

@@ -28,5 +28,8 @@ jobs:
       working-directory: ${{ github.workspace }}/angular-app
 
     - name: Run tests with Chrome Headless
-      run: npm run test -- --browsers=ChromeHeadless && exit 0
+      run: |
+        npm run test -- --browsers=ChromeHeadless
+        exit 0
       working-directory: ${{ github.workspace }}/angular-app
+

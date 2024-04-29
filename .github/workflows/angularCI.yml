@@ -14,21 +14,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Go to app folder
-      run: |
-        cd angular-app/
-        pwd
-
     - name: Seting up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 'latest'
 
     - name: Install dependencies
-      run: pwd && npm install
+      run: npm install
+      working-directory: ${{ github.workspace }}/angular-app
 
     - name: Build Angular app
       run: npm run build
+      working-directory: ${{ github.workspace }}/angular-app
 
     - name: Run tests
       run: npm run test
+      working-directory: ${{ github.workspace }}/angular-app

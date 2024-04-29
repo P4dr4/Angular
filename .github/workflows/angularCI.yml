@@ -26,10 +26,16 @@ jobs:
     - name: Build Angular app
       run: npm run build
       working-directory: ${{ github.workspace }}/angular-app
-
+      
     - name: Run tests with Chrome Headless
       run: |
         npm run test -- --browsers=ChromeHeadless
-        exit 0
+        if [ $? -eq 0 ]; then
+          echo "Tests passed successfully."
+          exit 0
+        else
+          echo "Tests failed."
+          exit 1
+        fi
       working-directory: ${{ github.workspace }}/angular-app
 

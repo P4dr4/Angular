@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  build:
+  Tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,5 +28,5 @@ jobs:
       working-directory: ${{ github.workspace }}/angular-app
 
     - name: Run tests with Chrome Headless
-      run: npm run test -- --browsers=ChromeHeadless
+      run: npm run test -- --browsers=ChromeHeadless && exit 0
       working-directory: ${{ github.workspace }}/angular-app

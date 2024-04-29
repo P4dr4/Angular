@@ -14,6 +14,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Go to app folder
+      run: |
+        cd angular-app/
+
     - name: Seting up Node.js
       uses: actions/setup-node@v3
       with:

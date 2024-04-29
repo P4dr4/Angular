@@ -17,6 +17,7 @@ jobs:
     - name: Go to app folder
       run: |
         cd angular-app/
+        pwd
 
     - name: Seting up Node.js
       uses: actions/setup-node@v3
@@ -24,7 +25,7 @@ jobs:
         node-version: 'latest'
 
     - name: Install dependencies
-      run: npm install
+      run: pwd && npm install
 
     - name: Build Angular app
       run: npm run build

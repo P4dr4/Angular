@@ -1,0 +1,21 @@
+name: Create Git Tag
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set Git Identity
+        run: |
+          git config --global user.email "${{ secrets.EMAIL }}"
+          git config --global user.name "${{ secrets.NAME }}"
+      
+      - name: Create Git Tag
+        run: |
+          git tag -a 'v1.0.0' -m 'Version 1.0.0'
+          git push origin --tags

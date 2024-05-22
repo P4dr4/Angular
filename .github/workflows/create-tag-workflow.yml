@@ -10,20 +10,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 16 
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the project
-        run: cd angular-app && npm run build
-
       - name: Create Git Tag
-        uses: ./  # Assuming the action is in the root directory of your repo
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: 'v1.0.0'  # Replace with your tag naming logic
-          override: 'true'  # Set to 'false' if you do not want to override existing tags
+        run: git tag -a 'v1.0.0' -m 'Version 1.0.0'

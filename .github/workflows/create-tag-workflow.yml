@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
+      - name: Set Git Identity
+        run: |
+          git config --global user.email "${{ screts.EMAIL }}"
+          git config --global user.name "${{ screts.NAME }}"
+      
       - name: Create Git Tag
         run: git tag -a 'v1.0.0' -m 'Version 1.0.0'

@@ -1,9 +1,7 @@
 name: Create Git Tag
 
 on:
-  push:
-    branches:
-      - main  # Change 'main' to your default branch name if different
+  workflow_dispatch:
 
 jobs:
   create-tag:

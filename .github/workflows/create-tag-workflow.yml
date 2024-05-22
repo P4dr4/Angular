@@ -1,19 +1,29 @@
-name: Create Tag
+name: Create Git Tag
+
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+
 jobs:
-  create_tag:
+  create-tag:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Create git tag
-        uses: P4dr4/create-git-tag-action@main
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: 'v1.0.0'
-          override: 'true'
+          node-version: 16 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Create Git Tag
+        uses: ./  # Assuming the action is in the root directory of your repo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: 'v1.0.0'  # Replace with your tag naming logic
+          override: 'true'  # Set to 'false' if you do not want to override existing tags

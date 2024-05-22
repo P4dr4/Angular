@@ -1,7 +1,9 @@
 name: Create Git Tag
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main  # Change 'main' to your default branch name if different
 
 jobs:
   create-tag:
@@ -16,4 +18,6 @@ jobs:
           git config --global user.name "${{ secrets.NAME }}"
       
       - name: Create Git Tag
-        run: git tag -a 'v1.0.0' -m 'Version 1.0.0'
+        run: |
+          git tag -a 'v1.0.0' -m 'Version 1.0.0'
+          git push origin --tags
